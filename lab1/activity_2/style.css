@@ -1,0 +1,72 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: "Open Sans";
+    height: 100%;
+    width: 100%;
+    background: url('./images/background.jpg') no-repeat center center fixed; 
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'Julius Sans One';
+    src: url('./fonts/JuliusSansOne-Regular.ttf'); 
+  }
+
+.logo {
+    width: 40%;
+    margin: 0 auto 0; 
+}
+
+#container {
+   clear: both;
+   background-color: rgba(255, 255, 255, 0.75);
+   border-radius: 10px;
+   width: 90%;
+   margin: 2% auto 0;
+   padding: 1.5% 0;
+   box-shadow: 0px 0px 20px #333535;
+}
+
+.clear {
+    clear: both;
+}
+
+#main {
+    margin: 10px 20px;
+    clear: both;
+}
+
+h3 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h5 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.character {
+    float: left;
+    border: 1px solid #5e5e5e;
+    border-radius: 5px;
+    margin: 1%;
+    width: 23%;
+    background: #b9c9ce;
+}
+
+.character p {
+    padding: 0 0 10px;
+    text-align: center;
+    color: #333535;
+    text-transform: capitalize;
+}
