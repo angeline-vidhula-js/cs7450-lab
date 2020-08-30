@@ -1,0 +1,137 @@
+@font-face {
+	font-family: 'TenorSans-Regular';
+	src: url('../assets/fonts/TenorSans-Regular.ttf');
+}
+
+
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+}
+
+nav {
+	height: 100%;
+	width: 100%;
+	font-family: 'TenorSans-Regular';
+}
+
+nav > ul {
+	width: 100%;
+	height: 100%;
+}
+
+nav > ul > li {
+	float: left;
+	width: calc(100% / 6);
+	height: 100%;
+	background: #29373a;
+	position: relative;
+	cursor: pointer;
+}
+
+nav > ul > li:hover h4{
+	transform: translateY(-200%);
+}
+
+nav ul h4 {
+	width: 100%;
+	text-align: center;
+	height: 100%;
+	position: relative;
+	z-index: 100;
+	transition: 0.5s;
+	text-transform: uppercase;
+	font-size: 20px;
+	
+}
+
+nav ul :nth-child(1) h4 {
+	background: #FF9AA2;
+}
+nav ul :nth-child(2) h4 {
+	background: #FFB7B2;
+}
+nav ul :nth-child(3) h4 {
+	background: #FFDAC1;
+}
+nav ul :nth-child(4) h4 {
+	background: #E2F0CB;
+}
+nav ul :nth-child(5) h4 {
+	background: #B5EAD7;
+}
+nav ul :nth-child(6) h4 {
+	background: #C7CEEA;
+}
+
+nav ul h4 p {
+	width: 100%;
+	top: 50%;
+	position: absolute;
+}
+
+.submenu {
+	width: 100%;
+	text-align: center;
+	top: calc(100%/3);
+	height: 50%;
+	position: absolute;
+	z-index: 90;
+	text-transform: uppercase;
+}
+
+.submenu li {
+	height: calc(100%/3);
+}
+
+.submenu a {
+	color: #fff;
+	font-size: 15px;
+	text-decoration: none;
+	padding: 5% 0;
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.submenu a:before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-top: 1px solid white;
+  top: 47%;
+  width: 25%;
+  left: 0px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.submenu a:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-top: 1px solid white;
+  top: 47%;
+  width: 25%;
+  right: 0px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.submenu li:hover a:before, .submenu li:hover a:after{
+	opacity: 1;
+}
+
+nav > ul > li.no-content {
+	cursor: not-allowed;
+	background-image: url('../assets/images/construction.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position-y: center;
+}
