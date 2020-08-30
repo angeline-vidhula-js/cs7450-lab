@@ -36,6 +36,7 @@ header {
     width: 100%;
     display: block;
     text-decoration: none;
+    color: #000;
 }
 
 .switch img {
@@ -48,6 +49,7 @@ header {
     width: 75%;
     float: right;
     padding-top: 7%;
+    color: #000;
 }
 
 #container {
