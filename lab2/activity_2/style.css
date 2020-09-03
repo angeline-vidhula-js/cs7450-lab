@@ -1,0 +1,59 @@
+
+
+body {
+    font-family: "Open Sans";
+}
+
+#main {
+    margin: 10px 20px;
+}
+
+svg {
+    margin: 0 auto;
+    display: block;
+}
+
+text.label {
+    text-anchor: middle;
+    font-size: 11px;
+    fill: #555;
+    font-family: sans-serif;
+}
+
+.axis text {
+    fill: #555;
+}
+
+.axis line,
+.axis path {
+    stroke: #555;
+}
+
+text.title {
+    text-anchor: middle;
+    font-size: 14px;
+    fill: #333;
+}
+
+circle {
+    fill: #4d7b84;
+    opacity: 0.5;
+    cursor: pointer;
+  
+}
+circle.top {
+    fill: orange;
+    stroke: black;
+    stroke-width: 0.2px;
+}
+
+text.dotlabel {
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+    font-weight: bold;
+}
+
+text.dotlabel.show {
+    display: block;
+}
