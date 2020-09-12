@@ -1,0 +1,31 @@
+.planet {
+    fill-opacity: 0.4;
+    stroke: #fff;
+    stroke-width: 0.5;
+    stroke-opacity: 0.6;
+}
+
+body {
+    font-family: "Open Sans";
+    margin: 0;
+    background-color: #000;
+}
+
+#main {
+    margin: 0;
+}
+
+svg circle {
+    opacity: 0.5;
+    stroke: #d0cece;
+}
+
+svg text {
+    fill: #fff;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 10px;
+}
+
+svg {
+    color: #fff;
+}
