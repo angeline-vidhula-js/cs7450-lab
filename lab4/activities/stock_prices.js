@@ -41,8 +41,111 @@ d3.csv('stock_prices.csv').then(function(dataset) {
 
 // **** Your JavaScript code goes here ****
 
+    dataset.forEach(function(price) {
+        price.date = parseDate(price.date);
+    }); 
 
+    var nested = d3.nest()
+        .key(function(d) { return d.company; })
+        .entries(dataset);
+
+    createGraph(nested);
 
 });
+
+let createGraph = nested => {
+    var xScale = d3.scaleTime()
+        .domain(dateDomain)
+        .range([0, trellisWidth]);
+
+    var yScale = d3.scaleLinear()
+        .domain(priceDomain)
+        .range([trellisHeight, 0]);
+
+    var lineInterpolate = d3.line()
+        .x(function(d) { return xScale(d.date); })
+        .y(function(d) { return yScale(d.price); });
+
+    var companyNames = nested.map(function(d){
+            return d.key;
+        });
+    var colorScale = d3.scaleOrdinal(d3.schemeCategory10)
+        .domain(companyNames);
+
+    var trellisG = svg.selectAll('.trellis')
+        .data(nested)
+        .enter()
+        .append('g')
+        .attr('class', 'trellis')
+        .attr('transform', function(d, i) {
+            // Position based on the matrix array indices.
+            // i = 1 for column 1, row 0)
+            var tx = (i % 2) * (trellisWidth + padding.l + padding.r) + padding.l;
+            var ty = Math.floor(i / 2) * (trellisHeight + padding.t + padding.b) + padding.t;
+            return 'translate('+[tx, ty]+')';
+        });
+
+    var xGrid = d3.axisTop(xScale)
+        .tickSize(-trellisHeight, 0, 0)
+        .tickFormat('');
+    
+    trellisG.append('g')
+        .attr('class', 'x grid')
+        .call(xGrid);
+    
+    var yGrid = d3.axisLeft(yScale)
+        .tickSize(-trellisWidth, 0, 0)
+        .tickFormat('')
+    
+    trellisG.append('g')
+        .attr('class', 'y grid')
+        .call(yGrid);
+    
+    trellisG.selectAll('.line-plot')
+        .data(function(d){
+            return [d.values];
+        })
+        .enter()
+        .append('path')
+        .attr('class', 'line-plot')
+        .attr('d', lineInterpolate)
+        .style('stroke', '#333')
+        .style('stroke', function(d) {
+            return colorScale(d[0].company);
+        });
+    
+    var xAxis = d3.axisBottom(xScale);
+    trellisG.append('g')
+        .attr('class', 'x axis')
+        .attr('transform', 'translate(0,'+trellisHeight+')')
+        .call(xAxis);
+
+    var yAxis = d3.axisLeft(yScale);
+    trellisG.append('g')
+        .attr('class', 'y axis')
+        .attr('transform', 'translate(0,0)')
+        .call(yAxis);
+
+    trellisG.append('text')
+        .attr('class', 'company-label')
+        .attr('transform', 'translate('+[trellisWidth / 2, trellisHeight / 2]+')')
+        .attr('fill', function(d){
+            return colorScale(d.key);
+        })
+        .text(function(d){
+            return d.key;
+        });
+    
+    trellisG.append('text')
+        .attr('class', 'x axis-label')
+        .attr('transform', 'translate('+[trellisWidth / 2, trellisHeight + 34]+')')
+        .text('Date (by Month)');
+    
+    trellisG.append('text')
+        .attr('class', 'y axis-label')
+        .attr('transform', 'translate('+[-30, trellisHeight / 2]+') rotate(270)')
+        .text('Stock Price (USD)');
+    
+}
 
 // Remember code outside of the data callback function will run before the data loads

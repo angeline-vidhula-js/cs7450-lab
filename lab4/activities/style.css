@@ -34,3 +34,11 @@ body {
 #main {
     margin: 20px;
 }
+
+svg text {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+svg .tick text {
+    font-size: 8px;
+}
