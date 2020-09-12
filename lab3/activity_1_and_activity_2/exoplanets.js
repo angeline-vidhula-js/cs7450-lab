@@ -54,24 +54,24 @@ let createAxes = data => {
     // Append the 2 X Axes
     svg.append('g')
 		.attr('class', 'x axis')
-		.attr('transform', 'translate(0,35)')
+		.attr('transform', 'translate(0,690)')
         .call(scaledData.xAxis1);
         
 
     svg.append('g')
             .attr('class', 'x axis')
-            .attr('transform', 'translate(0,700)')
+            .attr('transform', 'translate(0,45)')
             .call(scaledData.xAxis2);
     
     // Append X Axes Labels
     svg.append('text')
         .attr('class', 'label')
-        .attr('transform','translate(245,23)')
+        .attr('transform','translate(245,17)')
         .text('Habitual Zone Distance');
 
     svg.append('text')
         .attr('class', 'label')
-        .attr('transform','translate(245,723)')
+        .attr('transform','translate(245,727)')
         .text('Habitual Zone Distance');
 
     // Append the 2 Y Axes
